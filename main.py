@@ -1,19 +1,22 @@
-#Ejercicio 2
+#Ejercicio 3
 
-#Escriba un programa que genere todas las potencias de 2, desde la 0-ésima hasta la 
-#ingresada por el usuario:
+#Escriba un programa que pida al usuario dos números enteros, y luego entregue la suma de todos los números que están entre ellos. 
+#Por ejemplo, si los números son 1 y 7, #debe entregar como resultado 2 + 3 + 4 + 5 + 6 = 20.
+
+#Ingrese num: 1
+#Ingrese num: 7
+#La suma es 20
 
 
-def potencias_de_dos(n):
-    for i in range(n + 1):
-        print(f"2^{i} = {2 ** i}")
 
-def main():
-    # Solicitar la entrada al usuario
-    n = int(input("Ingrese el valor de n (potencia máxima): "))
-    
-    # Generar y mostrar las potencias de 2
-    potencias_de_dos(n)
+num1 = int(input("Ingrese el primer número entero: "))
+num2 = int(input("Ingrese el segundo número entero: "))
 
-# Llama a la función principal
-main()
+
+if num1 > num2:
+    num1, num2 = num2, num1
+
+suma = sum(range(num1 + 1, num2))
+
+
+print(f"La suma de los números entre {num1} y {num2} es: {suma}")
