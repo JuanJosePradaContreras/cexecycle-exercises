@@ -1,42 +1,32 @@
-#Ejercicio 9
+#Ejercicio 11
 
-#El número de Euler, e ≈ 2,71828, puede ser representado como la siguiente suma infinita:
+#Elabora una secuencia de collatz para numeros enteros
 
-#e=10!+11!+12!+13!+14!+…
-#Desarrolle un programa que entregue un valor aproximado de e, calculando esta suma hasta que la diferencia entre dos sumandos consecutivos sea menor que 0,0001.
+
+
+def colltaz_sequence(n):
+    secuencia = []
+    while n != 1:
+        secuencia.append(n)
+        if n % 2 == 0:
+            n //= 2
+        else:
+            n = 3 * n + 1
+    secuencia.append(1)  
+    return secuencia
+
 #
-#Recuerde que el factorial n! es el producto de los números de 1 a n.
+def graficar_longitudes_collatz(max_n):
+    print(f"Secuencia de Collatz y sus longitudes hasta {max_n - 1}:")
+    for i in range(1, max_n):
+        secuencia = colltaz_sequence(i)
+        longitud = len(secuencia)
+        print(f"{i} {'*' * longitud}")
 
 
-import math
+n = int(input("n: "))
+print("\nSecuencia de Collatz:")
+print(colltaz_sequence(n))
 
 
-def calcular_euler():
-    suma = 0
-    n = 10  
-    
-    while True:
-        
-        factorial = math.factorial(n)
-        
-        
-        suma += factorial
-        
-        
-        siguiente_factorial = math.factorial(n + 1)
-        diferencia = abs(siguiente_factorial - factorial)
-        
-        
-        print(f"n: {n}, Factorial: {factorial}, Suma: {suma}")
-        
-        
-        if diferencia < 0.0001:
-            break
-        
-        n += 1
-
-    return suma
-
-
-resultado = calcular_euler()
-print(f"\nValor aproximado de e: {resultado}")
+graficar_longitudes_collatz(n)
