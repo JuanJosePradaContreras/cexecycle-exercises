@@ -1,34 +1,42 @@
 #Ejercicio 9
 
-#Desarrolle un programa que permita trabajar con las potencias fraccionales de dos, es decir:
-#
-#12,14,18,116,132,164,…
-#en forma decimal:
-#
-#0.5,0.25,0.125,0.0625,0.03125,0.015625,…
-#El programa debe mostrar tres columnas que contengan la siguiente información:
-#
-#Potencia  Fraccion  Suma
-#1         0.5       0.5
-#2         0.25      0.75
-#3         0.125     0.875
-#4         0.0625    0.9375
-#...       ...       ...
-#El programa debe terminar cuando la fracción decimal sea menor o igual a 0.000001.
+#El número de Euler, e ≈ 2,71828, puede ser representado como la siguiente suma infinita:
 
-def potencias_fraccionales():
-    potencia = 1
-    fraccion = 0.5
+#e=10!+11!+12!+13!+14!+…
+#Desarrolle un programa que entregue un valor aproximado de e, calculando esta suma hasta que la diferencia entre dos sumandos consecutivos sea menor que 0,0001.
+#
+#Recuerde que el factorial n! es el producto de los números de 1 a n.
+
+
+import math
+
+
+def calcular_euler():
     suma = 0
-
-    print(f"{'Potencia':<10} {'Fracción':<10} {'Suma':<10}")
+    n = 10  
     
-    while fraccion > 0.000001:
-        suma += fraccion
-        print(f"{potencia:<10} {fraccion:<10.6f} {suma:<10.6f}")
+    while True:
         
-        potencia += 1
-        fraccion /= 2  
+        factorial = math.factorial(n)
+        
+        
+        suma += factorial
+        
+        
+        siguiente_factorial = math.factorial(n + 1)
+        diferencia = abs(siguiente_factorial - factorial)
+        
+        
+        print(f"n: {n}, Factorial: {factorial}, Suma: {suma}")
+        
+        
+        if diferencia < 0.0001:
+            break
+        
+        n += 1
+
+    return suma
 
 
-potencias_fraccionales()
+resultado = calcular_euler()
+print(f"\nValor aproximado de e: {resultado}")
