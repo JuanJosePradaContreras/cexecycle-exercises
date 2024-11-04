@@ -1,14 +1,14 @@
-#Ejercicio 7, parte 1
+#Ejercicio 7, parte 2
 
-#Programa para dibujar un rectángulo
-
-
+#Programa para dibujar un triangulo
 
 
-def dibujar_rectangulo(altura, ancho):
-    for _ in range(altura):
-        print('*' * ancho)
 
+
+def dibujar_triangulo(altura):
+    for i in range(1, altura + 1):
+        print('*' * i)
+
+# Solicitar altura al usuario
 altura = int(input("Altura: "))
-ancho = int(input("Ancho: "))
-dibujar_rectangulo(altura, ancho)
+dibujar_triangulo(altura)
